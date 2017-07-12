@@ -20,4 +20,9 @@ defmodule CardsTest do
     assert Cards.deal(deck, 1) === {["Ace"], ["Two", "Three"]}
   end
 
+  # test "should ramdomize a array" do
+  #   deck = Cards.create_deck
+  #   refute deck != Cards.shuffle(deck)
+  # end
+
 end
