@@ -16,6 +16,7 @@ defmodule Identicon do
     input
     |> hash_input
     |> pick_color
+    |> build_grid
   end
 
   def hash_input(input) do
@@ -30,8 +31,14 @@ defmodule Identicon do
   end
   
   def build_grid(%Identicon.Image{hex: hex} =image) do
-    hex
-    |> Enum.chunk(3)
+    grid = 
+      hex
+      |> Enum.chunk(3)
+      |> Enum.map(&mirrow_row/1)
+      |> List.flatten
+      |> Enum.with_index
+
+    %Identicon.Image{image | grid: grid}
   end
 
   def mirrow_row(row) do
