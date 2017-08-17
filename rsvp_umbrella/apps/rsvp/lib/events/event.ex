@@ -6,7 +6,5 @@ defmodule Rsvp.Events do
     field :location, :string
     field :date, Ecto.DateTime
     field :description, :string
-    
-    timestamps
   end
 end
